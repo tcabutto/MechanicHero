@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float movementSpeed;
+    [SerializeField] float movementSpeed;
     private Vector2 movement;
     private Rigidbody2D rbody;
 
@@ -19,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     //Calls Movment method on FixedUpdate
     void FixedUpdate()
     {
+        RotateTowardDirection();
         Movement();
     }
 
