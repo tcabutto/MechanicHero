@@ -19,7 +19,7 @@ public class ItemDatabase : MonoBehaviour
                     0,
                     "battery1",
                     "A battery to charge your car",
-                    "all" //May make 'BiomeDatabase' similar to what's being done here, to have an id and name.
+                    Item.Biome.All
                 )
         };
     }
