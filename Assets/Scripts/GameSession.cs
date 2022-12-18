@@ -6,8 +6,8 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] float loadDelay = 3f;
 
-    //may make inventory class later and move this into it
-    decimal money = 0.00m;
+    Inventory inventory;
+
     
     private void Awake()
     {
@@ -18,13 +18,14 @@ public class GameSession : MonoBehaviour
      }
      else
      {
+        inventory = FindObjectOfType<Inventory>();
         DontDestroyOnLoad(gameObject);
      }
     }
 
     private void Start() 
     {
-        moneyText.text = "$ " + money.ToString();
+        moneyText.text = "$ " + inventory.money.ToString();
     }
 
     public void ProcessPlayerDeath()
@@ -41,7 +42,7 @@ public class GameSession : MonoBehaviour
 
     public void IncrementMoney(decimal value)
     {
-        money += value;
-        moneyText.text = "Money: " + money.ToString();
+        inventory.money += value;
+        moneyText.text = "Money: " + inventory.money.ToString();
     }
 }
